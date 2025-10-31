@@ -1,7 +1,8 @@
 name: Android build
 
 # this is greatly inspired by skyline ci build file
-on: [push]
+on:
+  workflow_dispatch:
 
 permissions:
   contents: read
