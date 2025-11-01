@@ -74,6 +74,12 @@ jobs:
           export JAVA_HOME=$(echo $JAVA_HOME_17_X64)
           ./gradlew --stacktrace --info --configuration-cache --build-cache --parallel --configure-on-demand assembleDebug
 
+      - name: Check APK location
+        run: |
+          find android -type f
+          find android/build -type f
+          find android/build/outputs -type f
+      
       - name: Rename APK
         run: |
           mv  android/build/outputs/apk/debug/android-debug.apk  android/build/outputs/apk/release/vita3k-aarch64-${{ env.git_short_sha }}-release.apk
